@@ -32,8 +32,8 @@ public:
 	Board() : grid(size, std::vector<Cell>(size)) {}
 
 	void display() const;
-
 	void placeShip(int x, int y);
+	void attack (int x, int y);
 };
 
 class Game {
@@ -41,6 +41,7 @@ private:
 	Board board;
 
 public:
+	void shot();
 	void start();
 };
 

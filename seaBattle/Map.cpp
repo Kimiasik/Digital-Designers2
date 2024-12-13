@@ -22,9 +22,19 @@ void Board :: placeShip(int x, int y)
 			grid[x][y].setStatus('O');
 		}
 }
+void Board ::attack(int x, int y)
+{
+	if (x >= 0 && x < size && y >= 0 && y < size) {
+		grid[x][y].setStatus('X');
+	}
+}
+void Game ::shot() {
+	board.attack(1,4);
+}
 void Game :: start()
 {
 	{
+		shot();
 		board.display();
 	}
 }
