@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(seaBattle main.cpp
         battle.h
-        battle.cpp)
+        battle.cpp
+        bot.h
+        bot.cpp)
