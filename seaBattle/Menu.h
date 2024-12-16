@@ -4,8 +4,8 @@
 
 #ifndef SEABATTLE_MENU_H
 #define SEABATTLE_MENU_H
+
 #include <iostream>
-using namespace std;
 
 using namespace std;
 

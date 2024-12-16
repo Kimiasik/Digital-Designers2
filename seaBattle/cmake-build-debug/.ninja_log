@@ -1,12 +1,10 @@
 # ninja log v5
 39	679	7560849487338453	CMakeFiles/seaBattle.dir/Map.cpp.obj	32d8e70cb3222491
-6	557	7560849486130164	CMakeFiles/seaBattle.dir/main.cpp.obj	3633bcfa449ac479
-708	844	7558154189702640	seaBattle.exe	d439aa97e8c0df5f
-32	190	7560849482450707	CMakeFiles/seaBattle.dir/battle.cpp.obj	b96f1550b8e0823e
-3	256	7560850180861049	build.ninja	c57d597b31ad1ea6
-4	522	7560850581571908	CMakeFiles/seaBattle.dir/main.cpp.obj	3633bcfa449ac479
-19	529	7560850581635903	CMakeFiles/seaBattle.dir/Menu.cpp.obj	bbc60b361a035209
-529	2160	7560850597938083	seaBattle.exe	8507fd688e2ae231
 3	503	7560853549770997	CMakeFiles/seaBattle.dir/main.cpp.obj	3633bcfa449ac479
-18	605	7560853550805038	CMakeFiles/seaBattle.dir/Menu.cpp.obj	bbc60b361a035209
 606	2468	7560853569390617	seaBattle.exe	8507fd688e2ae231
+32	190	7560849482450707	CMakeFiles/seaBattle.dir/battle.cpp.obj	b96f1550b8e0823e
+3	256	7560860269942298	build.ninja	c57d597b31ad1ea6
+18	605	7560853550805038	CMakeFiles/seaBattle.dir/Menu.cpp.obj	bbc60b361a035209
+4	492	7560862600694866	CMakeFiles/seaBattle.dir/main.cpp.obj	3633bcfa449ac479
+18	593	7560862601692120	CMakeFiles/seaBattle.dir/Menu.cpp.obj	bbc60b361a035209
+593	1926	7560862614982409	seaBattle.exe	8507fd688e2ae231
