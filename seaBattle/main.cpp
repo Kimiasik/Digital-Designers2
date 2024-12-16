@@ -1,7 +1,10 @@
-#include <iostream>
-#include "Map.h"
+#include "Menu.h"
+
+using namespace std;
+
 int main() {
-Game game;
-game.start();
-	return 0;
+    system("chcp 65001");
+    Application application;
+    application.run();
+    return 0;
 }
