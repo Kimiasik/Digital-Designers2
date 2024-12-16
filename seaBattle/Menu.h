@@ -4,32 +4,31 @@
 
 #ifndef SEABATTLE_MENU_H
 #define SEABATTLE_MENU_H
-
-#endif //SEABATTLE_MENU_H
-
 #include <iostream>
 using namespace std;
 
-namespace std {
+using namespace std;
 
-    class Menu {
-    public:
-        void displayMenu();
-    };
+class Menu {
+public:
+	void displayMenu();
+};
 
-    class Game {
-    public:
-        void startGame();
-    };
+class GameMenu {
+public:
+	void startGame();
+};
 
-    class Application {
-    private:
-        Menu menu;
-        Game game;
-        bool running;
+class Application {
+private:
+	Menu menu;
+	GameMenu game;
+	bool running;
 
-    public:
-        Application();
-        void run();
-    };
-}
+public:
+	Application();
+	void run();
+};
+
+#endif //SEABATTLE_MENU_H
+

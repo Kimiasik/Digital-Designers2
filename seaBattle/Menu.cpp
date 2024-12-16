@@ -1,24 +1,25 @@
 #include "Menu.h"
-#include <cstdlib>
-
+#include "Map.h"
 using namespace std;
 
-    void Menu::displayMenu() {
+void Menu::displayMenu() {
         cout << "============================\n";
         cout << "       МОРСЬКИЙ БІЙ       \n";
         cout << "============================\n";
         cout << "1. Розпочати гру\n";
         cout << "2. Вийти з гри\n";
         cout << "Введіть свій вибір: ";
-    }
+}
 
-    void Game::startGame() {
+void GameMenu::startGame() {
         cout << "Гра розпочалася! Удачі!\n";
-    }
+				Game game;
+				game.start();
+}
 
-    Application::Application() : running(true) {}
+Application::Application() : running(true) {}
 
-    void Application::run() {
+void Application::run() {
         int choice;
         while (running) {
             menu.displayMenu();
@@ -38,5 +39,5 @@ using namespace std;
 
             cout << "\n";
         }
-    }
+}
 

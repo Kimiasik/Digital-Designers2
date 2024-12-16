@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
 C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/cmake-build-debug/CMakeFiles/seaBattle.dir
 C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-=======
-C:/Users/Acer/OneDrive/Документи/GitHub/Digital-Designers2/seaBattle/cmake-build-debug/CMakeFiles/seaBattle.dir
-C:/Users/Acer/OneDrive/Документи/GitHub/Digital-Designers2/seaBattle/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Acer/OneDrive/Документи/GitHub/Digital-Designers2/seaBattle/cmake-build-debug/CMakeFiles/rebuild_cache.dir
->>>>>>> Stashed changes
