@@ -9,4 +9,6 @@ add_executable(seaBattle main.cpp
         Map.h
         Map.cpp
         Menu.h
-        Menu.cpp)
+        Menu.cpp
+        Game.h
+        Game.cpp)

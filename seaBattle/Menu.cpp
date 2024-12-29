@@ -21,6 +21,7 @@ Application::Application() : running(true) {}
 
 void Application::run() {
         int choice;
+				int gameStart = 0;
         while (running) {
             menu.displayMenu();
             cin >> choice;
@@ -28,6 +29,7 @@ void Application::run() {
             switch (choice) {
                 case 1:
                     game.startGame();
+										gameStart = 1;
                     break;
                 case 2:
                     cout << "Дякуємо за гру! До побачення!\n";
@@ -36,8 +38,9 @@ void Application::run() {
                 default:
                     cout << "Невірний вибір. Спробуйте ще раз.\n";
             }
-
             cout << "\n";
+						if(gameStart == 1)
+							break;
         }
 }
 

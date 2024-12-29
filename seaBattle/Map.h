@@ -7,42 +7,40 @@
 #include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 class Cell {
 private:
-	char status; // ' ' - пусто, 'O' - корабль, 'X' - попадание, '*' - промах
+	char status; // ' ' - пусто, 'O' - корабель, 'X' - влучання, '*' - промах
 
 public:
-	Cell() : status(' ') {}
+	Cell(); // Конструктор
 
-	char getStatus() const {
-		return status;
-	}
-
-	void setStatus(char newStatus) {
-		status = newStatus;
-	}
+	char getStatus() const;        // Отримати статус клітинки
+	void setStatus(char newStatus); // Задати новий статус клітинки
 };
 
+// Клас дошки (Board)
 class Board {
 private:
-	static const int size = 10;
-	std::vector<std::vector<Cell>> grid;
+	static const int size = 10; // Розмір дошки
+	vector<vector<Cell>> grid; // Поле гри
 
 public:
-	Board() : grid(size, std::vector<Cell>(size)) {}
+	Board(); // Конструктор
 
-	void display() const;
-	void placeShip(int x, int y);
-	void attack (int x, int y);
+	void display() const;         // Відобразити поле
+	void placeShip(int x, int y); // Розмістити корабель
+	void attack(int x, int y);    // Атакувати координати
 };
 
+// Клас гри (Game)
 class Game {
 private:
-	Board board;
+	Board board; // Поле гри
 
 public:
-	void shot();
-	void start();
+	void shot();  // Здійснити постріл
+	void start(); // Почати гру
 };
 
 #endif //SEABATTLE_MAP_H
