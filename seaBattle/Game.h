@@ -4,6 +4,7 @@
 
 #ifndef SEABATTLE_GAME_H
 #define SEABATTLE_GAME_H
+#include "Map.h"
 class Playing
 {
 private:
@@ -12,5 +13,6 @@ public:
 	void ShipPlacement();
 	void StartGame();
 	void AutoShipPlacement();
+	void SetShip(int x, int y, int size, bool horizontal, Board &board);
 };
 #endif //SEABATTLE_GAME_H

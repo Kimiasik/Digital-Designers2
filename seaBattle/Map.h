@@ -22,8 +22,8 @@ public:
 // Клас дошки (Board)
 class Board {
 private:
-	static const int size = 10; // Розмір дошки
-    // Поле гри
+
+
 
 public:
 	Board(); // Конструктор
@@ -31,7 +31,8 @@ public:
 	void display() const;         // Відобразити поле
 	void placeShip(int x, int y); // Розмістити корабель
 	char attack(int x, int y);    // Атакувати координати
-    vector<vector<Cell>> grid;
+	vector<vector<Cell>> grid;		// Поле гри
+	static const int size = 10; 	// Розмір дошки
 };
 
 // Клас гри (Game)

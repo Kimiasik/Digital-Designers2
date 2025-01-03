@@ -10,28 +10,14 @@
 using namespace std;
 
 class Menu {
+private:
+	Playing playing;
 public:
 	void displayMenu();
-};
-
-class GameMenu {
-public:
 	void startGame();
-};
-
-class Application {
-private:
-	Menu menu;
-	GameMenu game;
-	bool running;
-	Playing playing;
-
-public:
-	Application();
-	void run();
 	void GameMode();
+	void run();
 	void ChoiceShipPlacement();
 };
-
 #endif //SEABATTLE_MENU_H
 
