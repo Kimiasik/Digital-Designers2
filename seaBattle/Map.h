@@ -22,27 +22,14 @@ public:
 // Клас дошки (Board)
 class Board {
 private:
-
-
-
 public:
 	Board(); // Конструктор
 
 	void display() const;         // Відобразити поле
-	void placeShip(int x, int y); // Розмістити корабель
-	char attack(int x, int y);    // Атакувати координати
+	//void placeShip(int x, int y); // Розмістити корабель
+	//char attack(int x, int y);    // Атакувати координати
 	vector<vector<Cell>> grid;		// Поле гри
 	static const int size = 10; 	// Розмір дошки
+	void start();
 };
-
-// Клас гри (Game)
-class Game {
-private:
-	Board board; // Поле гри
-
-public:
-	void shot();  // Здійснити постріл
-	void start(); // Почати гру
-};
-
 #endif //SEABATTLE_MAP_H

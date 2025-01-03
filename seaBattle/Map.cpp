@@ -10,7 +10,7 @@ char Cell::getStatus() const {
 }
 
 void Cell::setStatus(char newStatus) {
-	if (newStatus == ' ' || newStatus == 'O' || newStatus == 'X' || newStatus == '*') {
+	if (newStatus == ' ' || newStatus == '#' || newStatus == 'X' || newStatus == '*') {
 		status = newStatus;
 	} else {
 		cerr << "Invalid status value: " << newStatus << endl;
@@ -30,7 +30,7 @@ void Board::display() const {
 	}
 }
 
-void Board::placeShip(int x, int y) {
+/*void Board::placeShip(int x, int y) {
 	if (x >= 0 && x < size && y >= 0 && y < size) {
 		grid[x][y].setStatus('O');
 	}
@@ -52,15 +52,7 @@ void Game::shot() {
 	cin >> x >> y;
 	board.attack(x - 1, y - 1);
 }
-
-void Game::start() {
-	board.placeShip(0, 0);
-	board.placeShip(1, 1);
-
-	for (int i = 0; i < 20; ++i)
-	{
-		board.display();
-		shot();
-	}
-	board.display();
+*/
+void Board::start() {
+	display();
 }

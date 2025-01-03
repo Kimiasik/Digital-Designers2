@@ -14,8 +14,7 @@ void Menu::displayMenu() {
 
 void Menu::startGame() {
         cout << "Гра розпочалася! Удачі!\n";
-				Game game;
-				game.start();
+				board.start();
 
 }
 void Menu::GameMode()
@@ -86,7 +85,7 @@ void Menu::ChoiceShipPlacement()
 		switch(choice)
 		{
 			case 1:
-				playing.ShipPlacement();
+				board.start();
 				endWhile = 1;
 				break;
 

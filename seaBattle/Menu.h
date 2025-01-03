@@ -12,6 +12,7 @@ using namespace std;
 class Menu {
 private:
 	Playing playing;
+	Board board;
 public:
 	void displayMenu();
 	void startGame();

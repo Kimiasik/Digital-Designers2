@@ -12,7 +12,10 @@ void Playing::StartGame()
 
 void Playing::ShipPlacement()
 {
-
+	int x, y, size;
+	bool horizontal;
+	cout << "Введіть координати горизонтальність та ромір корабля(приклад 1, 2, 3, true): " << endl;
+	cin >> x, y, size, horizontal;
 }
 
 void Playing::AutoShipPlacement()
