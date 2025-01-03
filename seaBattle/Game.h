@@ -12,7 +12,7 @@ private:
 public:
 	void ShipPlacement(Board &board);
 	void StartGame();
-	void AutoShipPlacement();
+	void AutoShipPlacement(Board &board);
 	void SetShip(int x, int y, int size, bool horizontal, Board &board);
 };
 #endif //SEABATTLE_GAME_H

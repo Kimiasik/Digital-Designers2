@@ -92,7 +92,8 @@ void Menu::ChoiceShipPlacement()
 				break;
 
 			case 2:
-				playing.AutoShipPlacement();
+				playing.AutoShipPlacement(board);
+                board.start();
 				endWhile = 1;
 				break;
 			default:
