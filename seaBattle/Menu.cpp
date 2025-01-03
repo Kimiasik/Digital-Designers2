@@ -86,6 +86,8 @@ void Menu::ChoiceShipPlacement()
 		{
 			case 1:
 				board.start();
+				playing.ShipPlacement(board);
+				board.start();
 				endWhile = 1;
 				break;
 

@@ -10,7 +10,7 @@ class Playing
 private:
 	int WhoseAttack; //чия атака, якщо 0 то гравця номер 1, якщо 1 то гравця номер 2
 public:
-	void ShipPlacement();
+	void ShipPlacement(Board &board);
 	void StartGame();
 	void AutoShipPlacement();
 	void SetShip(int x, int y, int size, bool horizontal, Board &board);
