@@ -28,6 +28,8 @@ private:
 public:
 	Application();
 	void run();
+	void GameMode();
+	void ChoiceShipPlacement();
 };
 
 #endif //SEABATTLE_MENU_H

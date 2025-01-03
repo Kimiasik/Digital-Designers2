@@ -9,6 +9,7 @@ class Playing
 private:
 	int WhoseAttack; //чия атака, якщо 0 то гравця номер 1, якщо 1 то гравця номер 2
 public:
-	void Gaming();
+	void ShipPlacement();
+	void StartGame();
 };
 #endif //SEABATTLE_GAME_H

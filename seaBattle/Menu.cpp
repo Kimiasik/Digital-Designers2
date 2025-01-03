@@ -19,6 +19,29 @@ void GameMenu::startGame() {
 
 Application::Application() : running(true) {}
 
+void Application::GameMode()
+{
+	int choiceGame;
+	while (running) {
+		cin >> choiceGame;
+		cout << "ВИБЕРІТЬ РЕЖИМ ГРИ" << endl;
+		cout << "1. Грати з ботом" << endl;
+		cout << "2. LAN гра" << endl;
+
+		switch(choiceGame)
+		{
+			case 1:
+				break;
+			case 2:
+				game.startGame();
+				break;
+			default:
+				cout << "Невірний вибір. Спробуйте ще раз.\n";
+		}
+		cout << "\n";
+	}
+}
+
 void Application::run() {
         int choice;
 				int gameStart = 0;
@@ -28,7 +51,7 @@ void Application::run() {
 
             switch (choice) {
                 case 1:
-                    game.startGame();
+                    GameMode();
 										gameStart = 1;
                     break;
                 case 2:
@@ -44,3 +67,26 @@ void Application::run() {
         }
 }
 
+void Application::ChoiceShipPlacement()
+{
+	int choice;
+	while (running)
+	{
+		cin >> choice;
+		cout << "ВИБЕРІТЬ РОЗТАШУВАННЯ КОРАБЛІВ" << endl;
+		cout << "1. Вручну" << endl;
+		cout << "2. Випадково" << endl;
+		switch(choice)
+		{
+			case 1:
+
+				break;
+
+			case 2:
+
+				break;
+			default:
+				cout << "Невірний вибір. Спробуйте ще раз.\n";
+		}
+	}
+}

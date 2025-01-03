@@ -18,7 +18,7 @@ void Cell::setStatus(char newStatus) {
 }
 
 void Board::display() const {
-	cout << "  A B C D E F G H I J\n";
+	cout << "   A B C D E F G H I J\n";
 	for (int i = 0; i < size; ++i) {
 		cout << i + 1;
 		if (i + 1 < 10) cout << " ";
@@ -57,7 +57,8 @@ void Game::start() {
 	board.placeShip(0, 0);
 	board.placeShip(1, 1);
 
-	for (int i = 0; i < 20; ++i) {
+	for (int i = 0; i < 20; ++i)
+	{
 		board.display();
 		shot();
 	}
