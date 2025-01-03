@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Kimiast/Desktop/\u0423\u0447\u0451\u0431\u0430/2 \u043a\u0443\u0440\u0441/\u041e\u041e\u041f/Digital-Designers2/seaBattle/cmake-build-debug",
-		"source" : "C:/Users/Kimiast/Desktop/\u0423\u0447\u0451\u0431\u0430/2 \u043a\u0443\u0440\u0441/\u041e\u041e\u041f/Digital-Designers2/seaBattle"
+		"build" : "C:/Users/Rodion/Desktop/oop/Digital-Designers2/seaBattle/cmake-build-debug",
+		"source" : "C:/Users/Rodion/Desktop/oop/Digital-Designers2/seaBattle"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 7
 	}
 }

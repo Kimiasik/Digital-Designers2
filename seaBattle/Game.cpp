@@ -22,6 +22,7 @@ void Playing::AutoShipPlacement()
 {
 
 }
+
 void Playing::SetShip(int x, int y, int size, bool horizontal, Board &board) {
 	for (int i = 0; i < size; ++i) {
 		int nx = x + (horizontal ? 0 : i);
