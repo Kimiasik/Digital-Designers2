@@ -1,7 +1,6 @@
 #include "bot.h"
-#include <iostream>
 
-// Конструктор, ініціалізуємо генератор випадкових чисел
+// Конструктор: ініціалізуємо випадковий генератор
 Bot::Bot() : isHunting(false) {
     srand(static_cast<unsigned int>(time(0)));
 }
@@ -13,7 +12,7 @@ std::pair<int, int> Bot::getRandomCell() {
     return {x, y};
 }
 
-// Перевірка на те, чи знаходяться координати в межах поля
+// Перевіряє, чи координати знаходяться в межах поля
 bool Bot::isValidCell(int x, int y) {
     return x >= 0 && x < 10 && y >= 0 && y < 10;
 }
@@ -23,47 +22,52 @@ void Bot::makeMove(Board& enemyBoard) {
     int x, y;
 
     if (isHunting && !huntTargets.empty()) {
-        // Якщо перебуває в режимі добивання, беремо клітку з черги
+        // Якщо бот добиває, беремо координати з черги
         auto target = huntTargets.back();
         huntTargets.pop_back();
         x = target.first;
         y = target.second;
     } else {
-        // Шукаємо випадкову клітку, яку ще не атакували
+        // Генеруємо випадкові координати, поки не знайдемо невідому клітинку
         do {
             std::pair<int, int> cell = getRandomCell();
             x = cell.first;
             y = cell.second;
-        } while (enemyBoard.isAttacked(x, y));
+        } while (attackedCells.count({x, y}));
     }
 
-    if (enemyBoard.attack(x, y)) {
-        std::cout << "Бот потрапив у корабель на координатах: " << x << ", " << y << std::endl;
+    // Атакуємо клітинку
+    char cellStatus = enemyBoard.grid[x][y].getStatus(); // Отримуємо статус клітинки
 
-        // Додаємо сусідні клітини до списку для добивання
-        if (isValidCell(x - 1, y) && !enemyBoard.isAttacked(x - 1, y)) huntTargets.push_back({x - 1, y}); // Вгору
-        if (isValidCell(x + 1, y) && !enemyBoard.isAttacked(x + 1, y)) huntTargets.push_back({x + 1, y}); // Вниз
-        if (isValidCell(x, y - 1) && !enemyBoard.isAttacked(x, y - 1)) huntTargets.push_back({x, y - 1}); // Ліворуч
-        if (isValidCell(x, y + 1) && !enemyBoard.isAttacked(x, y + 1)) huntTargets.push_back({x, y + 1}); // Праворуч
+    if (cellStatus == 'O') { // Потрапляння
+        std::cout << "Бот влучив у корабель на (" << x << ", " << y << ")." << std::endl;
+        enemyBoard.grid[x][y].setStatus('X'); // Помічаємо влучання
 
-        isHunting = true; // Встановлюємо режим добивання
-    } else {
-        std::cout << "Бот промахнувся за координатами: " << x << ", " << y << std::endl;
+        // Додаємо сусідні клітинки до списку добивання
+        if (isValidCell(x - 1, y)) huntTargets.push_back({x - 1, y});
+        if (isValidCell(x + 1, y)) huntTargets.push_back({x + 1, y});
+        if (isValidCell(x, y - 1)) huntTargets.push_back({x, y - 1});
+        if (isValidCell(x, y + 1)) huntTargets.push_back({x, y + 1});
 
-        // Якщо більше немає цілей добивання, повертаємося до випадкового пошуку
+        isHunting = true; // Увімкнути режим добивання
+    } else if (cellStatus == ' ') { // Промах
+        std::cout << "Бот промахнувся на (" << x << ", " << y << ")." << std::endl;
+        enemyBoard.grid[x][y].setStatus('*'); // Помічаємо промах
         if (huntTargets.empty()) {
-            isHunting = false;
+            isHunting = false; // Вийти з режиму добивання
         }
     }
+
+    attackedCells.insert({x, y});
 }
 
-// Перевірка, чи можна розмістити корабель у вказаній позиції
+// Перевіряє, чи можна розмістити корабель на дошці
 bool Bot::canPlaceShip(Board& board, int x, int y, int length, bool horizontal) {
     for (int i = 0; i < length; ++i) {
         if (horizontal) {
-            if (!board.isValidCell(x, y + i) || board.isOccupied(x, y + i)) return false;
+            if (!isValidCell(x, y + i) || board.grid[x][y + i].getStatus() != ' ') return false;
         } else {
-            if (!board.isValidCell(x + i, y) || board.isOccupied(x + i, y)) return false;
+            if (!isValidCell(x + i, y) || board.grid[x + i][y].getStatus() != ' ') return false;
         }
     }
     return true;
@@ -71,7 +75,7 @@ bool Bot::canPlaceShip(Board& board, int x, int y, int length, bool horizontal) 
 
 // Розміщення кораблів на дошці
 void Bot::placeShips(Board& ownBoard) {
-    std::vector<int> shipSizes = {4, 3, 3, 2, 2, 2, 1, 1, 1, 1}; // Розміри кораблів
+    std::vector<int> shipSizes = {4, 3, 3, 2, 2, 2, 1, 1, 1, 1};
 
     for (int size : shipSizes) {
         bool placed = false;
@@ -83,9 +87,9 @@ void Bot::placeShips(Board& ownBoard) {
             if (canPlaceShip(ownBoard, x, y, size, horizontal)) {
                 for (int i = 0; i < size; ++i) {
                     if (horizontal) {
-                        ownBoard.placeShip(x, y + i); // Розміщуємо горизонтально
+                        ownBoard.grid[x][y + i].setStatus('O');
                     } else {
-                        ownBoard.placeShip(x + i, y); // Розміщуємо вертикально
+                        ownBoard.grid[x + i][y].setStatus('O');
                     }
                 }
                 placed = true;

@@ -36,7 +36,7 @@ void Board::placeShip(int x, int y) {
 	}
 }
 
-void Board::attack(int x, int y) {
+char Board::attack(int x, int y) {
 	if (x >= 0 && x < size && y >= 0 && y < size) {
 		if (grid[x][y].getStatus() == 'O') {
 			grid[x][y].setStatus('X');

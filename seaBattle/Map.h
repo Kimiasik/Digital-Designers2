@@ -23,14 +23,15 @@ public:
 class Board {
 private:
 	static const int size = 10; // Розмір дошки
-	vector<vector<Cell>> grid; // Поле гри
+    // Поле гри
 
 public:
 	Board(); // Конструктор
 
 	void display() const;         // Відобразити поле
 	void placeShip(int x, int y); // Розмістити корабель
-	void attack(int x, int y);    // Атакувати координати
+	char attack(int x, int y);    // Атакувати координати
+    vector<vector<Cell>> grid;
 };
 
 // Клас гри (Game)
