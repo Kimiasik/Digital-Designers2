@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "Map.h"
+#include "Game.h"
 using namespace std;
 
 void Menu::displayMenu() {
@@ -22,6 +23,7 @@ Application::Application() : running(true) {}
 void Application::GameMode()
 {
 	int choiceGame;
+	int endWhile;
 	while (running) {
 		cin >> choiceGame;
 		cout << "ВИБЕРІТЬ РЕЖИМ ГРИ" << endl;
@@ -31,14 +33,19 @@ void Application::GameMode()
 		switch(choiceGame)
 		{
 			case 1:
+				ChoiceShipPlacement();
+				endWhile = 1;
 				break;
 			case 2:
 				game.startGame();
+				endWhile = 1;
 				break;
 			default:
 				cout << "Невірний вибір. Спробуйте ще раз.\n";
 		}
 		cout << "\n";
+		if(endWhile == 1)
+			break;
 	}
 }
 
@@ -70,6 +77,7 @@ void Application::run() {
 void Application::ChoiceShipPlacement()
 {
 	int choice;
+	int endWhile;
 	while (running)
 	{
 		cin >> choice;
@@ -79,14 +87,18 @@ void Application::ChoiceShipPlacement()
 		switch(choice)
 		{
 			case 1:
-
+				playing.ShipPlacement();
+				endWhile = 1;
 				break;
 
 			case 2:
-
+				playing.AutoShipPlacement();
+				endWhile = 1;
 				break;
 			default:
 				cout << "Невірний вибір. Спробуйте ще раз.\n";
 		}
+		if (endWhile == 1)
+			break;
 	}
 }

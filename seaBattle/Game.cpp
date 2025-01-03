@@ -12,3 +12,8 @@ void Playing::ShipPlacement()
 {
 
 }
+
+void Playing::AutoShipPlacement()
+{
+
+}

@@ -11,5 +11,6 @@ private:
 public:
 	void ShipPlacement();
 	void StartGame();
+	void AutoShipPlacement();
 };
 #endif //SEABATTLE_GAME_H

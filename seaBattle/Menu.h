@@ -4,7 +4,7 @@
 
 #ifndef SEABATTLE_MENU_H
 #define SEABATTLE_MENU_H
-
+#include "Game.h"
 #include <iostream>
 
 using namespace std;
@@ -24,6 +24,7 @@ private:
 	Menu menu;
 	GameMenu game;
 	bool running;
+	Playing playing;
 
 public:
 	Application();
