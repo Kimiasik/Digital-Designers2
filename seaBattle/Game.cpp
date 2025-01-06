@@ -4,31 +4,91 @@
 #include "Game.h"
 #include "iostream"
 #include "Map.h"
+void Playing::endGame()
+{
+	if(livingCells == 0)
+	{
+		cout << "Гра завершена!" << endl;
+		return;
+	}
+}
 
-void Playing::StartGame()
+void Playing::PlayersTurnAttack(int x, int y, Board &board)
+{
+	if (x >= 0 && x <= 9 && y >= 0 && y <= 9)
+	{
+		if (board.grid[x][y].getStatus() == '#') {
+			board.grid[x][y].setStatus('X');
+			cout << "Попадання!" << endl;
+			livingCells--;
+		}
+		else {
+			cout << "Не попав((((" << endl;
+			board.grid[x][y].setStatus('*');
+		}
+	}
+}
+
+void Playing::botTurnAttack(int x, int y, Board &board)
 {
 
 }
 
-void Playing::ShipPlacement(Board &board)
+void Playing::StartGame(Board &playerBoard, Board &botBoard)
 {
+	int x, y;
+	cout << "Поля гравців створені, гра починається!" << endl;
+	cout << "Перший хід за гравцем!" << endl;
+	for(int i = livingCells; i == 0; i--) {
+		endGame();
+		cout << "Введіть координати для атаки(x, y):" << endl;
+		cin >> x;
+		cin >> y;
+		PlayersTurnAttack(x - 1, y - 1, botBoard);
+	}
+}
+
+void Playing::ShipPlacement(Board &Board)
+{
+	int fourDeckShip = 0, threeDeckShip = 0, doubleDeckerShip = 0, singleDeckShip = 0;
 	int x, y, size;
 	int h;
 	bool horizontal;
-	cout << "Введіть координати горизонтальність та ромір корабля(приклад 1, 2, 3, 0 - false 1-true): " << endl;
-	cout << "Enter x" << endl;
-	cin >> x;
-	cout << "Enter y" << endl;
-	cin >> y;
-	cout << "enter size" << endl;
-	cin >> size;
-	cout << "Введіть горизонтальність корабля" << endl;
-	cin >> h;
-	if(h == 1)
-		horizontal = true;
-	if(h == 0)
-		horizontal = false;
-	SetShip(x, y, size, horizontal, board);
+	for (int i = 0; i <= 9; i++)
+	{
+		cout << "Введіть координати горизонтальність та ромір корабля(приклад 1, 2, 3, 0 - false 1-true): " << endl;
+		cout << "Enter x" << endl;
+		cin >> x;
+		cout << "Enter y" << endl;
+		cin >> y;
+		cout << "enter size" << endl;
+		cin >> size;
+		cout << "Введіть горизонтальність корабля" << endl;
+		cin >> h;
+		if(size == 4) {
+			fourDeckShip++;
+		}
+		if(size == 3) {
+			threeDeckShip++;
+		}
+		if(size == 2){
+			doubleDeckerShip++;
+		}
+		if(size == 1){
+			singleDeckShip++;
+		}
+		if (h == 1)
+			horizontal = true;
+		if (h == 0)
+			horizontal = false;
+
+		if(fourDeckShip == 2 || threeDeckShip == 3 || doubleDeckerShip == 4 || singleDeckShip == 5) {
+			cout << "Кількість цих кораблів максимальна" << endl;
+		}
+		else
+			SetShip(x - 1, y - 1, size, horizontal, Board);
+		Board.start();
+	}
 }
 
 void Playing::AutoShipPlacement(Board &board)

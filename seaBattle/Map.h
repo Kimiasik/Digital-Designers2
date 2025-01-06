@@ -10,7 +10,7 @@
 using namespace std;
 class Cell {
 private:
-	char status; // ' ' - пусто, 'O' - корабель, 'X' - влучання, '*' - промах
+	char status; // ' ' - пусто, '#' - корабель, 'X' - влучання, '*' - промах
 
 public:
 	Cell(); // Конструктор

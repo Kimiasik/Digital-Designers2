@@ -12,7 +12,8 @@ using namespace std;
 class Menu {
 private:
 	Playing playing;
-	Board board;
+	Board playerBoard;
+	Board botBoard;
 public:
 	void displayMenu();
 	void startGame();

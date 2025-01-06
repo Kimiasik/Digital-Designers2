@@ -14,9 +14,9 @@ void Menu::displayMenu() {
 
 void Menu::startGame() {
         cout << "Гра розпочалася! Удачі!\n";
-				board.start();
-
+				playerBoard.start();
 }
+
 void Menu::GameMode()
 {
 	int choiceGame;
@@ -85,15 +85,17 @@ void Menu::ChoiceShipPlacement()
 		switch(choice)
 		{
 			case 1:
-				board.start();
-				playing.ShipPlacement(board);
-				board.start();
+				cout << "Player Board" << endl;
+				playerBoard.start();
+				playing.ShipPlacement(playerBoard);
 				endWhile = 1;
 				break;
 
 			case 2:
-				playing.AutoShipPlacement(board);
-                board.start();
+				playing.AutoShipPlacement(playerBoard);
+				playerBoard.start();
+				playing.AutoShipPlacement(botBoard);
+				playing.StartGame(playerBoard, botBoard);
 				endWhile = 1;
 				break;
 			default:
