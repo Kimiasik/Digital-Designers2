@@ -4,47 +4,65 @@
 #include "Game.h"
 #include "iostream"
 #include "Map.h"
+
 void Playing::endGame()
 {
-	if(livingCells == 0)
+	if(livingCellsPlayer || livingCellsBot == 0)
 	{
-		cout << "Гра завершена!" << endl;
+		//cout << "Гра завершена!" << endl;
 		return;
 	}
 }
 
-void Playing::PlayersTurnAttack(int x, int y, Board &board)
+void Playing::PlayersTurnAttack(int x, int y, Board &botBoard)
 {
 	if (x >= 0 && x <= 9 && y >= 0 && y <= 9)
 	{
-		if (board.grid[x][y].getStatus() == '#') {
-			board.grid[x][y].setStatus('X');
+		if (botBoard.grid[x][y].getStatus() == '#') {
+			botBoard.grid[x][y].setStatus('X');
 			cout << "Попадання!" << endl;
-			livingCells--;
+			livingCellsPlayer--;
 		}
 		else {
 			cout << "Не попав((((" << endl;
-			board.grid[x][y].setStatus('*');
+			botBoard.grid[x][y].setStatus('*');
 		}
 	}
 }
 
-void Playing::botTurnAttack(int x, int y, Board &board)
+void Playing::botTurnAttack(Board &playerBoard)
 {
-
+	int x, y;
+	x = 0 + rand() % 10;
+	y = 0 + rand() % 10;
+	if (x >= 0 && x <= 9 && y >= 0 && y <= 9)
+	{
+		if (playerBoard.grid[x][y].getStatus() == '#') {
+			playerBoard.grid[x][y].setStatus('X');
+			cout << "Попадання!" << endl;
+			livingCellsBot--;
+		}
+		else {
+			cout << "Не попав((((" << endl;
+			playerBoard.grid[x][y].setStatus('*');
+		}
+	}
 }
 
-void Playing::StartGame(Board &playerBoard, Board &botBoard)
+void Playing::StartGameVsBot(Board &playerBoard, Board &botBoard)
 {
 	int x, y;
 	cout << "Поля гравців створені, гра починається!" << endl;
 	cout << "Перший хід за гравцем!" << endl;
-	for(int i = livingCells; i == 0; i--) {
+	for(int i = livingCellsPlayer; livingCellsPlayer || livingCellsBot == 0; i--) {
 		endGame();
 		cout << "Введіть координати для атаки(x, y):" << endl;
 		cin >> x;
 		cin >> y;
 		PlayersTurnAttack(x - 1, y - 1, botBoard);
+		cout << "Атака Бота!" << endl;
+		botTurnAttack(playerBoard);
+		playerBoard.start();
 	}
 }
 

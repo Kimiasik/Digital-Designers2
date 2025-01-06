@@ -30,29 +30,6 @@ void Board::display() const {
 	}
 }
 
-/*void Board::placeShip(int x, int y) {
-	if (x >= 0 && x < size && y >= 0 && y < size) {
-		grid[x][y].setStatus('O');
-	}
-}
-
-char Board::attack(int x, int y) {
-	if (x >= 0 && x < size && y >= 0 && y < size) {
-		if (grid[x][y].getStatus() == 'O') {
-			grid[x][y].setStatus('X');
-		} else {
-			grid[x][y].setStatus('*');
-		}
-	}
-}
-
-void Game::shot() {
-	int x, y;
-	cout << "Enter coordinates to attack (x y): ";
-	cin >> x >> y;
-	board.attack(x - 1, y - 1);
-}
-*/
 void Board::start() {
 	display();
 }

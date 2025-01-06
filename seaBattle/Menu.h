@@ -16,7 +16,6 @@ private:
 	Board botBoard;
 public:
 	void displayMenu();
-	void startGame();
 	void GameMode();
 	void run();
 	void ChoiceShipPlacement();

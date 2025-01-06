@@ -12,11 +12,6 @@ void Menu::displayMenu() {
         cout << "Введіть свій вибір: ";
 }
 
-void Menu::startGame() {
-        cout << "Гра розпочалася! Удачі!\n";
-				playerBoard.start();
-}
-
 void Menu::GameMode()
 {
 	int choiceGame;
@@ -35,7 +30,6 @@ void Menu::GameMode()
 				endWhile = 1;
 				break;
 			case 2:
-				startGame();
 				endWhile = 1;
 				break;
 			default:
@@ -95,7 +89,7 @@ void Menu::ChoiceShipPlacement()
 				playing.AutoShipPlacement(playerBoard);
 				playerBoard.start();
 				playing.AutoShipPlacement(botBoard);
-				playing.StartGame(playerBoard, botBoard);
+				playing.StartGameVsBot(playerBoard, botBoard);
 				endWhile = 1;
 				break;
 			default:

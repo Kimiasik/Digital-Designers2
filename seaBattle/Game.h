@@ -9,14 +9,15 @@ class Playing
 {
 private:
 	int WhoseAttack; //чия атака, якщо 0 то гравця номер 1, якщо 1 то гравця номер 2
-	int livingCells = 20;
+	int livingCellsPlayer = 20;
+	int livingCellsBot = 20;
 public:
 	void ShipPlacement(Board &Board);
-	void StartGame(Board &playerBoard, Board &botBoard);
+	void StartGameVsBot(Board &playerBoard, Board &botBoard);
 	void AutoShipPlacement(Board &Board);
 	void SetShip(int x, int y, int size, bool horizontal, Board &board);
 	void PlayersTurnAttack(int x, int y, Board &board);
-	void botTurnAttack(int x, int y, Board &board);
+	void botTurnAttack(Board &board);
 	void endGame();
 };
 #endif //SEABATTLE_GAME_H
