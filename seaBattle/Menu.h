@@ -11,14 +11,17 @@ using namespace std;
 
 class Menu {
 private:
-	Playing playing;
+	PlayingBot playingBot;
+	PlayingPlayer playingPlayer;
 	Board playerBoard;
 	Board botBoard;
+	Board playerTwoBoard;
 public:
 	void displayMenu();
 	void GameMode();
-	void run();
 	void ChoiceShipPlacement();
+	void ChoiceShipPlacementVsPlayer();
 };
+
 #endif //SEABATTLE_MENU_H
 

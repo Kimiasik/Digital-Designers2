@@ -224,6 +224,30 @@ battle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\seaBattle.dir\build.make CMakeFiles/seaBattle.dir/battle.cpp.s
 .PHONY : battle.cpp.s
 
+bot.obj: bot.cpp.obj
+.PHONY : bot.obj
+
+# target to build an object file
+bot.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\seaBattle.dir\build.make CMakeFiles/seaBattle.dir/bot.cpp.obj
+.PHONY : bot.cpp.obj
+
+bot.i: bot.cpp.i
+.PHONY : bot.i
+
+# target to preprocess a source file
+bot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\seaBattle.dir\build.make CMakeFiles/seaBattle.dir/bot.cpp.i
+.PHONY : bot.cpp.i
+
+bot.s: bot.cpp.s
+.PHONY : bot.s
+
+# target to generate assembly for a file
+bot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\seaBattle.dir\build.make CMakeFiles/seaBattle.dir/bot.cpp.s
+.PHONY : bot.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -269,6 +293,9 @@ help:
 	@echo ... battle.obj
 	@echo ... battle.i
 	@echo ... battle.s
+	@echo ... bot.obj
+	@echo ... bot.i
+	@echo ... bot.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -7,21 +7,16 @@
 
 void Playing::endGame()
 {
-	if(livingCellsPlayer || livingCellsBot == 0)
-	{
-		//cout << "Гра завершена!" << endl;
-		return;
-	}
 }
 
-void Playing::PlayersTurnAttack(int x, int y, Board &botBoard)
+void Playing::PlayersTurnAttack(int x, int y, Board &botBoard, int &livingCells)
 {
 	if (x >= 0 && x <= 9 && y >= 0 && y <= 9)
 	{
 		if (botBoard.grid[x][y].getStatus() == '#') {
 			botBoard.grid[x][y].setStatus('X');
 			cout << "Попадання!" << endl;
-			livingCellsPlayer--;
+			livingCells--;
 		}
 		else {
 			cout << "Не попав((((" << endl;
@@ -30,7 +25,7 @@ void Playing::PlayersTurnAttack(int x, int y, Board &botBoard)
 	}
 }
 
-void Playing::botTurnAttack(Board &playerBoard)
+void PlayingBot::botTurnAttack(Board &playerBoard)
 {
 	int x, y;
 	x = 0 + rand() % 10;
@@ -40,7 +35,7 @@ void Playing::botTurnAttack(Board &playerBoard)
 		if (playerBoard.grid[x][y].getStatus() == '#') {
 			playerBoard.grid[x][y].setStatus('X');
 			cout << "Попадання!" << endl;
-			livingCellsBot--;
+			livingCellsPlayer--;
 		}
 		else {
 			cout << "Не попав((((" << endl;
@@ -49,17 +44,16 @@ void Playing::botTurnAttack(Board &playerBoard)
 	}
 }
 
-void Playing::StartGameVsBot(Board &playerBoard, Board &botBoard)
-{
+void PlayingBot::StartGameVsBot(Board &playerBoard, Board &botBoard) {
 	int x, y;
 	cout << "Поля гравців створені, гра починається!" << endl;
 	cout << "Перший хід за гравцем!" << endl;
-	for(int i = livingCellsPlayer; livingCellsPlayer || livingCellsBot == 0; i--) {
+	while (livingCellsPlayer && livingCellsBot) {
 		endGame();
 		cout << "Введіть координати для атаки(x, y):" << endl;
 		cin >> x;
 		cin >> y;
-		PlayersTurnAttack(x - 1, y - 1, botBoard);
+		PlayersTurnAttack(x - 1, y - 1, botBoard, livingCellsBot);
 		cout << "Атака Бота!" << endl;
 		botTurnAttack(playerBoard);
 		playerBoard.start();
@@ -113,8 +107,6 @@ void Playing::AutoShipPlacement(Board &board)
 {
     const int shipSizes[] = {4, 3, 3, 2, 2, 2, 1, 1, 1, 1};
     const int numShips = sizeof(shipSizes) / sizeof(shipSizes[0]);
-
-    srand(static_cast<unsigned>(time(0)));
 
     for (int i = 0; i < numShips; ++i) {
         bool placed = false;
@@ -187,5 +179,21 @@ void Playing::SetShip(int x, int y, int size, bool horizontal, Board &board) {
 		int ny = y + (horizontal ? i : 0);
 
 		board.grid[nx][ny].setStatus('#');
+	}
+}
+
+void PlayingPlayer::startGameVsPlayer(Board &playerBoard, Board &playerTwoBoard)
+{
+	int x, y;
+	cout << "Поля гравців створені, гра починається!" << endl;
+	cout << "Перший хід за гравцем!" << endl;
+	while (livingCellsPlayerOne && livingCellsPlayerTwo) {
+		endGame();
+		cout << "Введіть координати для атаки(x, y):" << endl;
+		cin >> x;
+		cin >> y;
+		PlayersTurnAttack(x - 1, y - 1, playerTwoBoard, livingCellsPlayerTwo);
+		cout << "Атага гравця 2!" << endl;
+		PlayersTurnAttack(x - 1, y - 1, playerBoard, livingCellsPlayerOne);
 	}
 }

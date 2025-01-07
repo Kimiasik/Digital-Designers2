@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/Map.cpp" "CMakeFiles/seaBattle.dir/Map.cpp.obj" "gcc" "CMakeFiles/seaBattle.dir/Map.cpp.obj.d"
   "C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/Menu.cpp" "CMakeFiles/seaBattle.dir/Menu.cpp.obj" "gcc" "CMakeFiles/seaBattle.dir/Menu.cpp.obj.d"
   "C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/battle.cpp" "CMakeFiles/seaBattle.dir/battle.cpp.obj" "gcc" "CMakeFiles/seaBattle.dir/battle.cpp.obj.d"
+  "C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/bot.cpp" "CMakeFiles/seaBattle.dir/bot.cpp.obj" "gcc" "CMakeFiles/seaBattle.dir/bot.cpp.obj.d"
   "C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/main.cpp" "CMakeFiles/seaBattle.dir/main.cpp.obj" "gcc" "CMakeFiles/seaBattle.dir/main.cpp.obj.d"
   )
 

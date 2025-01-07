@@ -11,4 +11,6 @@ add_executable(seaBattle main.cpp
         Menu.h
         Menu.cpp
         Game.h
-        Game.cpp)
+        Game.cpp
+        bot.h
+        bot.cpp)

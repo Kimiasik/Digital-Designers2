@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/seaBattle.dir/Menu.cpp.obj.d"
   "CMakeFiles/seaBattle.dir/battle.cpp.obj"
   "CMakeFiles/seaBattle.dir/battle.cpp.obj.d"
+  "CMakeFiles/seaBattle.dir/bot.cpp.obj"
+  "CMakeFiles/seaBattle.dir/bot.cpp.obj.d"
   "CMakeFiles/seaBattle.dir/main.cpp.obj"
   "CMakeFiles/seaBattle.dir/main.cpp.obj.d"
   "libseaBattle.dll.a"

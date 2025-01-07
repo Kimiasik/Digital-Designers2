@@ -108,6 +108,12 @@
 		<Unit filename="C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/battle.h">
 			<Option target="seaBattle"/>
 		</Unit>
+		<Unit filename="C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/bot.cpp">
+			<Option target="seaBattle"/>
+		</Unit>
+		<Unit filename="C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/bot.h">
+			<Option target="seaBattle"/>
+		</Unit>
 		<Unit filename="C:/Users/Kimiast/Desktop/Учёба/2 курс/ООП/Digital-Designers2/seaBattle/main.cpp">
 			<Option target="seaBattle"/>
 		</Unit>
