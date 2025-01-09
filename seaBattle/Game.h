@@ -5,6 +5,8 @@
 #ifndef SEABATTLE_GAME_H
 #define SEABATTLE_GAME_H
 #include "Map.h"
+#include "bot.h"
+
 class Playing
 {
 public:
@@ -18,11 +20,12 @@ public:
 class PlayingBot : public Playing
 {
 private:
+    MediumBot bot;
 	int livingCellsPlayer = 20;
-	int livingCellsBot = 20;
+    int livingCellsBot = 20;
 public:
-	void StartGameVsBot(Board &playerBoard, Board &botBoard);
-	void botTurnAttack(Board &board);
+    void StartGameVsBot(Board &playerBoard, Board &botBoard);
+	//void botTurnAttack(Board &board);
 };
 
 class PlayingPlayer : public Playing

@@ -1,6 +1,7 @@
 #include "Menu.h"
 #include "Map.h"
 #include "Game.h"
+#include "bot.h"
 using namespace std;
 
 void Menu::displayMenu() {
@@ -24,7 +25,7 @@ void Menu::displayMenu() {
 				endWhile++;
 				break;
 			default:
-				cout << "Неправельний вибір" << endl;
+				cout << "Неправильний вибір" << endl;
 				break;
 		}
 		if(endWhile == 1)

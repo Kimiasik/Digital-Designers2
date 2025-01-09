@@ -9,20 +9,51 @@
 #include <ctime>
 #include <iostream>
 
-class Bot {
-private:
-    bool isHunting; // Прапор, що вказує на пошук сусідніх клітин після влучення
-    std::vector<std::pair<int, int>> huntTargets; // Черга для добивання
-    std::set<std::pair<int, int>> attackedCells; // Набір для зберігання атакованих клітин
+using namespace std;
 
-    std::pair<int, int> getRandomCell(); // Метод для випадкового вибору клітини
-    bool isValidCell(int x, int y); // Метод для перевірки, чи не виходять координати за межі
-    bool canPlaceShip(Board& board, int x, int y, int length, bool horizontal); // Метод для перевірки, чи можна розмістити корабель
+//Базовий клас для бота
+class Bot {
+protected:
+    int livingCellsPlayer = 20; // К-сть живих клітинок
+    set<pair<int, int>> attackedCells; //Набір атакованих клітинок
+
+    // Перевірка доступності координат
+    bool isValidCell(int x, int y);
+    bool isCellAvailable(Board& board, int x, int y);
+    // Отримання випадкової клітинки
+    pair<int, int> getRandomCell();
 
 public:
-    Bot(); // Конструктор
-    void makeMove(Board& enemyBoard); // Метод, що здійснює хід
-    void placeShips(Board& ownBoard); // Метод для розміщення кораблів на дошці
+    Bot();
+    virtual ~Bot() = default;
+
+    // Метод здійснення ходу
+    virtual void makeMove(Board& enemyBoard) = 0;
 };
 
-#endif //OOP_BOT_H
+// Легкий бот
+class EasyBot : public Bot {
+public:
+    EasyBot();
+    void makeMove(Board& enemyBoard) override;
+};
+
+// Середній бот
+class MediumBot : public Bot {
+private:
+    bool isHunting; // Режим добивания
+    vector<pair<int, int>> huntTargets; // Черга цілей
+
+public:
+    MediumBot();
+    void makeMove(Board& enemyBoard) override;
+};
+
+// Важкий бот
+class HardBot : public MediumBot {
+public:
+    HardBot();
+    void makeMove(Board& enemyBoard) override;
+};
+
+#endif // OOP_BOT_H

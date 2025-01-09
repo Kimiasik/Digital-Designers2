@@ -25,7 +25,7 @@ void Playing::PlayersTurnAttack(int x, int y, Board &botBoard, int &livingCells)
 	}
 }
 
-void PlayingBot::botTurnAttack(Board &playerBoard)
+/*void PlayingBot::botTurnAttack(Board &playerBoard)
 {
 	int x, y;
 	x = 0 + rand() % 10;
@@ -42,7 +42,7 @@ void PlayingBot::botTurnAttack(Board &playerBoard)
 			playerBoard.grid[x][y].setStatus('*');
 		}
 	}
-}
+}*/
 
 void PlayingBot::StartGameVsBot(Board &playerBoard, Board &botBoard) {
 	int x, y;
@@ -55,7 +55,7 @@ void PlayingBot::StartGameVsBot(Board &playerBoard, Board &botBoard) {
 		cin >> y;
 		PlayersTurnAttack(x - 1, y - 1, botBoard, livingCellsBot);
 		cout << "Атака Бота!" << endl;
-		botTurnAttack(playerBoard);
+        bot.makeMove(playerBoard);
 		playerBoard.start();
 	}
 }
@@ -68,7 +68,7 @@ void Playing::ShipPlacement(Board &Board)
 	bool horizontal;
 	for (int i = 0; i <= 9; i++)
 	{
-		cout << "Введіть координати горизонтальність та ромір корабля(приклад 1, 2, 3, 0 - false 1-true): " << endl;
+		cout << "Введіть координати горизонтальність та розмір корабля(приклад 1, 2, 3, 0 - false 1-true): " << endl;
 		cout << "Enter x" << endl;
 		cin >> x;
 		cout << "Enter y" << endl;

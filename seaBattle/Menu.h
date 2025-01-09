@@ -5,6 +5,7 @@
 #ifndef SEABATTLE_MENU_H
 #define SEABATTLE_MENU_H
 #include "Game.h"
+#include "bot.h"
 #include <iostream>
 
 using namespace std;
